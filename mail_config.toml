@@ -1,0 +1,83 @@
+# Uncomment if you start the app as root and want to downgrade
+# once all privileged actions are completed
+#user="wildduck"
+#group="wildduck"
+
+# process title and syslog ident
+ident="wildduck"
+
+# how many processes to start
+processes=1
+
+# default quota storage in MB (can be overriden per user)
+maxStorage=1024
+
+# default smtp recipients for 24h (can be overriden per user)
+maxRecipients=2000
+
+# default forwarded messages for 24h (can be overriden per user)
+maxForwards=2000
+
+# If usernames are not email addresses then use this domain as hostname part
+#emailDomain="mydomain.info"
+
+bugsnagCode=""
+
+# Header rules for routing spam
+# @include "./mailserver/config/spamheaders.toml"
+
+[dbs]
+# @include "./mailserver/config/dbs.toml"
+
+[totp]
+    # If enabled then encrypt TOTP seed tokens with the secret password. By default TOTP seeds
+    # are not encrypted and stored as cleartext. Once set up do not change these values,
+    # otherwise decrypting totp seeds is going to fail
+    #cipher="aes192"
+    #secret="a secret cat"
+
+[u2f]
+    # Fully qualified URL of your website (must use HTTPS!)
+    appId="https://localhost:3000"
+
+[attachments]
+# @include "./mailserver/config/attachments.toml"
+
+[log]
+    level="silly"
+    # log to syslog if true
+    # not needed if you run the app as systemd service
+    syslog=false
+
+    # delete authentication log entries after 30 days
+    # changing this value only affects new entries
+    # set to false to not log authentication events
+    # set to 0 to keep the logs infinitely
+    authlogExpireDays=30
+
+[imap]
+# @include "./mailserver/config/imap.toml"
+
+[tls]
+# @include "./mailserver/config/tls.toml"
+
+[lmtp]
+# @include "./mailserver/config/lmtp.toml"
+
+[pop3]
+# @include "./mailserver/config/pop3.toml"
+
+[api]
+# @include "./mailserver/config/api.toml"
+
+[irc]
+# @include "./mailserver/config/irc.toml"
+
+[sender]
+# @include "./mailserver/config/sender.toml"
+
+[smtp.setup]
+# Public configuration for SMTP MDA, needed for mobileconfig files
+hostname="localhost"
+secure=false
+port=2587

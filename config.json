@@ -1,23 +1,26 @@
 {
+    "API": {
+        "url": "localhost:8080" 
+    },
 	"Memory": {
 		"Enabled": true,
 		"Populate": false,
-		"Domains": ["emersion.fr"]
+		"Domains": ["correspond.io"]
 	},
 	"Imap": {
 		"Enabled": true,
-		"Hostname": "mail.gandi.net",
+		"Hostname": "mail.correspond.io",
 		"Tls": true,
-		"Suffix": "@emersion.fr"
+		"Suffix": "@correspond.io"
 	},
 	"Smtp": {
 		"Enabled": true,
-		"Hostname": "mail.gandi.net",
+		"Hostname": "mail.correspond.io",
 		"Port": 587,
-		"Suffix": "@emersion.fr"
+		"Suffix": "@correspond.io"
 	},
 	"Disk": {
-		"Enabled": true,
+		"Enabled": false,
 		"Keys": { "Directory": "db/keys" },
 		"Contacts": { "Directory": "db/contacts" },
 		"UsersSettings": { "Directory": "db/settings" },
